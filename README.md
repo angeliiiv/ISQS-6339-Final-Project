@@ -20,13 +20,13 @@ Shows benefits or justifications of project.
 3) How are individual variables of the data directly beneficial to the business “what did the team identify as potentially valuable and why”.
 
 
-## Data cleaning – Discuss overall quality of the data. Should address:
+## Data cleaning – Discuss overall quality of the data. Should address: - Angel 
 1)What is overall quality of the data.
 2)What variables contain missing values/dirty values.
 3)How did we address the issues of data quality/missing values/dirty values.
 4)What issues did we have in cleaning the data – Talk about bad plans and bad code. What we could have done better.
 
-## Data merging – Discuss methods used to merge the datasets. Should address:
+## Data merging – Discuss methods used to merge the datasets. Should address: - Angel 
 1)How was the data merged.
 2)Were there issues related to difference in granularity betweendatasets? How did we address issues?
 3)Did we identify any macro-variables that could be created? Variables that come from 2 or more variables between different datasets.
