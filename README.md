@@ -3,13 +3,13 @@
 I was trying to break down some of the pieces of the project so we could maybe divide up. Maybe this is helpful. If nothing else, we can use it as a launching point if anyone has something they really want to do. 
 
 
-Tasks needed for FCP:
+##Tasks needed for FCP:
 
-Csv files cleaned and in the same quarterly format so they can be jointed into a larger data set.
+###Csv files cleaned and in the same quarterly format so they can be jointed into a larger data set.
 
  
 
-Need to write introduction – overview of the project. Shows benefits or justifications of project.
+##Need to write introduction – overview of the project. Shows benefits or justifications of project.
 
  
 
