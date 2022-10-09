@@ -8,9 +8,15 @@ Created on Sun Oct  2 10:40:01 2022
 import pandas as pd
 
 
+#enter the filepath to your flder that contains the CSV files below
+input_filepath = "C:\\Users\\angel\\OneDrive\\Documents\\TTU Masters Program\\ISQS-6339\\Final Project\\Proposal Datasets\\"
+
+#enter the output filepath where you woud like the final file to be
+output_filepath = "C:\\Users\\angel\\OneDrive\\Documents\\TTU Masters Program\\ISQS-6339\\Final Project\\Proposal Datasets\\"
+
 """ Average Earnings - Manipulation """
 # reading in the CSV file
-avg_annual_earnings = pd.read_excel('national_weekly_incomev2.xlsx')
+avg_annual_earnings = pd.read_excel(input_filepath + 'national_weekly_incomev2.xlsx')
 
 #Selecting the columns we need and adjusting the data
 aae = avg_annual_earnings[['Year','Period','Value']]
@@ -41,7 +47,7 @@ aae = aae.set_index('Date')
 fedfile = 'federal_reserve_data.csv'
 
 #taking current date columns and parsing together to get one date column. Also replacing spaces with underscore in column names
-fedres = pd.read_csv(fedfile, parse_dates = {'date' : ['Year', 'Month', 'Day']}, index_col = 'date')
+fedres = pd.read_csv(input_filepath + fedfile, parse_dates = {'date' : ['Year', 'Month', 'Day']}, index_col = 'date')
 fedres.columns = fedres.columns.str.replace(' ', '_')
 
 #transforming the data to be quarterly versus monthly using mean
@@ -60,7 +66,7 @@ fed = fed.drop(['Federal_Funds_Upper_Target','Federal_Funds_Lower_Target','Feder
 
 """ Quarterly Average Home Sales Price - QASP """ 
 # bringing in data
-qasp = pd.read_csv('quarter_average_sales price.csv')
+qasp = pd.read_csv(input_filepath + 'quarter_average_sales price.csv')
 
 # data was already in a quarterly form so we just need to adjust the date format
 qasp['DATE']=pd.to_datetime(qasp['DATE'])
@@ -78,7 +84,7 @@ qasp = qasp.set_index('Date')
 """ Housing CPI Data - Manipulation """
 # bringing in our data and melting to transform from a wide dataset to a long
 cpi_housing_file = 'national_cpi_housing_data.csv'
-cpi_df = pd.read_csv(cpi_housing_file, skiprows = 11)
+cpi_df = pd.read_csv(input_filepath + cpi_housing_file, skiprows = 11)
 cpi_df = cpi_df.melt(id_vars = 'Year', value_vars = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], var_name='Month', value_name = 'CPI')
 
 #manipualting the year and month columns to get into a quarterly format
@@ -109,7 +115,7 @@ dffinal['Real_GDP_(Percent_Change)'] = dffinal['Real_GDP_(Percent_Change)'].fill
 dffinal = dffinal.drop('group_column',axis=1)
 
 """ Output to CSV """
-dffinal.to_csv('merged_data.csv')
+dffinal.to_csv(output_filepath + 'merged_data.csv')
 
 
 
